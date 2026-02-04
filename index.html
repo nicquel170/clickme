@@ -1,156 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>💖 Valentine Proposal 💖</title>
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      overflow: hidden;
-    }
-    .card {
-      background: white;
-      padding: 40px 50px 50px;
-      border-radius: 24px;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-      position: relative;
-    }
-    h1 {
-      color: #ff4d6d;
-      margin-bottom: 30px;
-    }
-    .buttons {
-      position: relative;
-      height: 120px;
-      margin-top: 20px;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Be My Valentine 💘</title>
 
-    /* Heart-shaped YES button */
-    #yesBtn {
-      width: 110px;
-      height: 100px;
-      background: #ff4d6d;
-      position: relative;
-      transform: rotate(-45deg);
-      border: none;
-      cursor: pointer;
-      margin-right: 40px;
-    }
-    #yesBtn::before,
-    #yesBtn::after {
-      content: "";
-      width: 110px;
-      height: 100px;
-      background: #ff4d6d;
-      border-radius: 50%;
-      position: absolute;
-    }
-    #yesBtn::before {
-      top: -55px;
-      left: 0;
-    }
-    #yesBtn::after {
-      left: 55px;
-      top: 0;
-    }
-    #yesText {
-      position: absolute;
-      top: 38px;
-      left: 18px;
-      transform: rotate(45deg);
-      color: white;
-      font-size: 18px;
-      font-weight: bold;
-      pointer-events: none;
-    }
+<style>
+  * {
+    box-sizing: border-box;
+    font-family: "Comic Sans MS", "Poppins", cursive;
+  }
 
-    /* NO button */
-    #noBtn {
-      padding: 12px 24px;
-      font-size: 18px;
-      border: none;
-      border-radius: 12px;
-      background: #ccc;
-      position: absolute;
-      right: 0;
-      cursor: pointer;
-    }
+  body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffb6c1, #ffd6e7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
 
-    #noText {
-      margin-top: 15px;
-      font-size: 16px;
-      color: #ff4d6d;
-      opacity: 0;
-      transition: opacity 0.2s ease;
-    }
+  .container {
+    text-align: center;
+  }
 
-    .heart {
-      position: fixed;
-      font-size: 26px;
-      animation: float 3s ease-out forwards;
-    }
-    @keyframes float {
-      from { transform: translateY(0) scale(1); opacity: 1; }
-      to { transform: translateY(-220px) scale(1.6); opacity: 0; }
-    }
-  </style>
+  h1 {
+    color: #d6004f;
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .heart {
+    width: 140px;
+    height: 140px;
+    background: pink;
+    position: relative;
+    transform: rotate(-45deg);
+    margin: auto;
+    animation: pulse 1.5s infinite;
+  }
+
+  .heart::before,
+  .heart::after {
+    content: "";
+    width: 140px;
+    height: 140px;
+    background: pink;
+    border-radius: 50%;
+    position: absolute;
+  }
+
+  .heart::before {
+    top: -70px;
+    left: 0;
+  }
+
+  .heart::after {
+    left: 70px;
+    top: 0;
+  }
+
+  @keyframes pulse {
+    0% { transform: rotate(-45deg) scale(1); }
+    50% { transform: rotate(-45deg) scale(1.1); }
+    100% { transform: rotate(-45deg) scale(1); }
+  }
+
+  .buttons {
+    position: relative;
+    height: 220px;
+    margin-top: 20px;
+  }
+
+  #yesBtn {
+    position: absolute;
+    top: 60px;
+    left: 35px;
+    width: 80px;
+    height: 45px;
+    border: none;
+    border-radius: 25px;
+    background: #ff2f6e;
+    color: white;
+    font-size: 1.1rem;
+    cursor: pointer;
+    z-index: 2;
+    box-shadow: 0 0 10px rgba(255, 47, 110, 0.6);
+  }
+
+  #noBtn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #777;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .heart-float {
+    position: fixed;
+    bottom: -20px;
+    font-size: 24px;
+    animation: floatUp 4s linear forwards;
+  }
+
+  @keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-120vh); opacity: 0; }
+  }
+</style>
 </head>
+
 <body>
-  <div class="card" id="card">
-    <h1>Will you be my Valentine? 💕</h1>
 
-    <div class="buttons">
-      <button id="yesBtn">
-        <div id="yesText">YES 💖</div>
-      </button>
+<div class="container">
+  <h1>Will you be my Valentine? 💘</h1>
 
-      <button id="noBtn">No 🙃</button>
-    </div>
-
-    <div id="noText">thought you cudda say no 😏</div>
+  <div class="buttons">
+    <div class="heart"></div>
+    <button id="yesBtn">YES 💖</button>
+    <button id="noBtn">NO 🙄</button>
   </div>
+</div>
 
-  <script>
-    const noBtn = document.getElementById('noBtn');
-    const yesBtn = document.getElementById('yesBtn');
-    const card = document.getElementById('card');
-    const noText = document.getElementById('noText');
+<!-- Sounds -->
+<audio id="popSound" src="https://assets.mixkit.co/sfx/preview/mixkit-bubble-pop-up-alert-notification-2357.mp3"></audio>
+<audio id="yaySound" src="https://assets.mixkit.co/sfx/preview/mixkit-happy-pop-2060.mp3"></audio>
 
-    noBtn.addEventListener('mouseover', () => {
-      const x = Math.random() * 300 - 150;
-      const y = Math.random() * 200 - 100;
-      noBtn.style.transform = `translate(${x}px, ${y}px)`;
-      noText.style.opacity = 1;
-    });
+<script>
+  const yesBtn = document.getElementById("yesBtn");
+  const noBtn = document.getElementById("noBtn");
+  const popSound = document.getElementById("popSound");
+  const yaySound = document.getElementById("yaySound");
 
-    noBtn.addEventListener('mouseleave', () => {
-      noText.style.opacity = 0;
-    });
+  noBtn.addEventListener("mouseover", moveNo);
+  noBtn.addEventListener("click", moveNo);
 
-    yesBtn.addEventListener('click', () => {
-      card.innerHTML = '<h1>Yayyy!! 💘💘💘</h1><p>You just made me the happiest person 😍</p>';
-      for (let i = 0; i < 50; i++) {
-        createHeart();
-      }
-    });
+  function moveNo() {
+    popSound.play();
+    const x = Math.random() * 80;
+    const y = Math.random() * 80;
+    noBtn.style.left = x + "%";
+    noBtn.style.top = y + "%";
+  }
 
-    function createHeart() {
-      const heart = document.createElement('div');
-      heart.className = 'heart';
-      heart.innerText = '❤️';
-      heart.style.left = Math.random() * window.innerWidth + 'px';
-      heart.style.top = window.innerHeight + 'px';
+  yesBtn.addEventListener("click", () => {
+    yaySound.play();
+    document.body.innerHTML = "<h1 style='color:#ff2f6e;font-size:2.5rem;text-align:center;'>YAY 💖 YOU’RE MY VALENTINE 💖</h1>";
+
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart-float";
+      heart.textContent = "💗";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = (20 + Math.random() * 30) + "px";
       document.body.appendChild(heart);
-      setTimeout(() => heart.remove(), 3000);
-    }
-  </script>
+      setTimeout(() => heart.remove(), 4000);
+    }, 150);
+  });
+</script>
+
 </body>
 </html>
